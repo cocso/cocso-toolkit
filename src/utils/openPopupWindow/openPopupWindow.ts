@@ -1,6 +1,6 @@
-type Target = '_blank' | '_self' | '_parent' | '_top' | string;
+export type OpenPopupWindowTarget = '_blank' | '_self' | '_parent' | '_top' | string;
 
-type Features = {
+export type OpenPopupWindowFeatures = {
   width?: number;
   height?: number;
   top?: number;
@@ -17,15 +17,15 @@ type Features = {
   noreferrer?: boolean;
 };
 
-type Options = {
-  target?: Target;
-} & Features;
+export type OpenPopupWindowOptions = {
+  target?: OpenPopupWindowTarget;
+} & OpenPopupWindowFeatures;
 
 /**
  * @description
- * `buildFeatures` is a helper function that converts a Features object into a window.open features string.
+ * `buildFeatures` is a helper function that converts a OpenPopupWindowFeatures object into a window.open features string.
  *
- * @param {Features} features - The features object containing window properties.
+ * @param {OpenPopupWindowFeatures} features - The features object containing window properties.
  *
  * @returns {string} A comma-separated string of window features for window.open.
  *
@@ -38,7 +38,7 @@ type Options = {
  * });
  * // Returns: width=800,height=600,resizable=yes,scrollbars=no
  */
-function buildFeatures(features: Features): string {
+function buildFeatures(features: OpenPopupWindowFeatures): string {
   const featurePairs: string[] = [];
 
   if (features.width !== undefined) featurePairs.push(`width=${features.width}`);
@@ -46,7 +46,7 @@ function buildFeatures(features: Features): string {
   if (features.top !== undefined) featurePairs.push(`top=${features.top}`);
   if (features.left !== undefined) featurePairs.push(`left=${features.left}`);
 
-  const booleanFeatures: (keyof Features)[] = [
+  const booleanFeatures: (keyof OpenPopupWindowFeatures)[] = [
     'resizable',
     'scrollbars',
     'menubar',
@@ -75,8 +75,8 @@ function buildFeatures(features: Features): string {
  * and size constraints for better user experience.
  *
  * @param {string} url - The URL to open in the new window.
- * @param {Options} [options={}] - Configuration options for the popup window.
- * @param {Target} [options.target='_blank'] - The target window name.
+ * @param {OpenPopupWindowOptions} [options={}] - Configuration options for the popup window.
+ * @param {OpenPopupWindowTarget} [options.target='_blank'] - The target window name.
  * @param {number} options.width=800 - The width of the popup window (constrained between 200px and 90% of screen width).
  * @param {number} [options.height=680] - The height of the popup window (constrained between 200px and 90% of screen height).
  * @param {boolean} [options.resizable=true] - Whether the window can be resized.
@@ -118,7 +118,7 @@ function buildFeatures(features: Features): string {
  *   noreferrer: true
  * });
  */
-export function openPopupWindow(url: string, options: Options = {}): Window | null {
+export function openPopupWindow(url: string, options: OpenPopupWindowOptions = {}): Window | null {
   if (
     typeof window === 'undefined' ||
     typeof window.screen === 'undefined' ||
@@ -152,7 +152,7 @@ export function openPopupWindow(url: string, options: Options = {}): Window | nu
   const left = Math.max(0, (window.screen.width - constrainedWidth) / 2);
   const top = Math.max(0, (window.screen.height - constrainedHeight) / 2);
 
-  const features: Features = {
+  const features: OpenPopupWindowFeatures = {
     width: constrainedWidth,
     height: constrainedHeight,
     top: Math.floor(top),
