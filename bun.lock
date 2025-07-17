@@ -5,17 +5,20 @@
       "name": "cocso-toolkit",
       "dependencies": {
         "dayjs": "^1.11.13",
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0",
       },
       "devDependencies": {
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
         "esbuild": "^0.25.6",
         "prettier": "^3.6.2",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
         "turbo": "^2.5.5",
         "typescript": "^5.8.3",
         "vitest": "^3.2.4",
+      },
+      "peerDependencies": {
+        "react": "^19 || ^18",
       },
     },
   },
