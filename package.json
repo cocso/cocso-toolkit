@@ -11,7 +11,9 @@
   "scripts": {
     "build": "rm -rf lib && bun run build.js && bun x tsc",
     "dev": "bun run build.js --watch",
-    "lint": "bun run lint"
+    "lint": "bun run lint",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "type": "module",
   "main": "./lib/index.cjs",
@@ -32,12 +34,13 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "turbo": "^2.5.4",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "esbuild": "^0.25.6",
-    "typescript": "^5.8.3"
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=18"

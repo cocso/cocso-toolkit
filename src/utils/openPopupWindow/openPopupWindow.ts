@@ -131,6 +131,8 @@ export function openPopupWindow(url: string, options: OpenPopupWindowOptions = {
     target = '_blank',
     width = 800,
     height = 680,
+    top,
+    left,
     resizable = true,
     scrollbars = true,
     menubar = false,
@@ -149,14 +151,14 @@ export function openPopupWindow(url: string, options: OpenPopupWindowOptions = {
   const constrainedWidth = Math.max(minSize, Math.min(width, maxWidth));
   const constrainedHeight = Math.max(minSize, Math.min(height, maxHeight));
 
-  const left = Math.max(0, (window.screen.width - constrainedWidth) / 2);
-  const top = Math.max(0, (window.screen.height - constrainedHeight) / 2);
+  const defaultLeft = Math.max(0, (window.screen.width - constrainedWidth) / 2);
+  const defaultTop = Math.max(0, (window.screen.height - constrainedHeight) / 2);
 
   const features: OpenPopupWindowFeatures = {
     width: constrainedWidth,
     height: constrainedHeight,
-    top: Math.floor(top),
-    left: Math.floor(left),
+    top: typeof top === 'number' ? Math.floor(top) : Math.floor(defaultTop),
+    left: typeof left === 'number' ? Math.floor(left) : Math.floor(defaultLeft),
     resizable,
     scrollbars,
     menubar,
