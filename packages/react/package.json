@@ -1,6 +1,6 @@
 {
   "name": "@cocso-toolkit/react",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cocso/cocso-toolkit.git",
@@ -30,10 +30,10 @@
     "test:run": "vitest run"
   },
   "dependencies": {
-    "@cocso-toolkit/core": "workspace:*",
-    "@internal/typescript-config": "workspace:*"
+    "@cocso-toolkit/core": "workspace:*"
   },
   "devDependencies": {
+    "@internal/typescript-config": "workspace:*",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "esbuild": "^0.25.6",
