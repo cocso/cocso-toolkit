@@ -43,16 +43,22 @@ export function formatPrice(amount: number | string, options: FormatPriceOptions
   }
 
   if (currency === 'KRW') {
+    const maxDigits = maximumFractionDigits ?? 1;
+    const minDigits = minimumFractionDigits ?? 0;
+
     return `${new Intl.NumberFormat(locale, {
-      maximumFractionDigits: maximumFractionDigits ?? 1,
-      minimumFractionDigits,
+      maximumFractionDigits: maxDigits,
+      minimumFractionDigits: Math.min(minDigits, maxDigits),
     }).format(parsedAmount)}원`;
   }
+
+  const maxDigits = maximumFractionDigits ?? 3;
+  const minDigits = minimumFractionDigits ?? 0;
 
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency,
-    maximumFractionDigits: maximumFractionDigits ?? 3,
-    minimumFractionDigits,
+    maximumFractionDigits: maxDigits,
+    minimumFractionDigits: Math.min(minDigits, maxDigits),
   }).format(parsedAmount);
 }
