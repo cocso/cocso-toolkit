@@ -4,6 +4,7 @@
     "": {
       "name": "cocso-toolkit",
       "dependencies": {
+        "dayjs": "^1.11.13",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
       },
@@ -12,7 +13,7 @@
         "@types/react-dom": "^19.1.6",
         "esbuild": "^0.25.6",
         "prettier": "^3.6.2",
-        "turbo": "^2.5.4",
+        "turbo": "^2.5.5",
         "typescript": "^5.8.3",
         "vitest": "^3.2.4",
       },
@@ -146,6 +147,8 @@
     "check-error": ["check-error@2.1.1", "", {}, "sha512-OAlb+T7V4Op9OwdkjmguYRqncdlx5JiofwOAUkmTF+jNdHwzTaTs4sRAGpzLF3oOz5xAyDGrPgeIDFQmDOTiJw=="],
 
     "csstype": ["csstype@3.1.3", "", {}, "sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw=="],
+
+    "dayjs": ["dayjs@1.11.13", "", {}, "sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg=="],
 
     "debug": ["debug@4.4.1", "", { "dependencies": { "ms": "^2.1.3" } }, "sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ=="],
 
