@@ -51,6 +51,20 @@ function buildFeatures(features: OpenPopupWindowFeatures): string {
   return featurePairs.join(',');
 }
 
+/**
+ * @description
+ * `openPopupWindow` is a utility function that opens a new browser window (popup) with configurable features and positioning.
+ * It handles default sizing, centering, and feature string construction for window.open.
+ *
+ * @param {string} url - The URL to open in the popup window.
+ * @param {OpenPopupWindowOptions} options - Configuration options for the popup window (size, position, features, etc.).
+ * @returns {Window | null} The window object of the opened popup, or null if not available (e.g., server-side).
+ *
+ * @example
+ * openPopupWindow('https://example.com');
+ * openPopupWindow('https://example.com', { width: 400, height: 300, resizable: false });
+ * openPopupWindow('https://example.com', { target: '_self', noopener: true });
+ */
 export function openPopupWindow(url: string, options: OpenPopupWindowOptions = {}): Window | null {
   if (
     typeof window === 'undefined' ||
