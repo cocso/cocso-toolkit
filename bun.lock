@@ -18,7 +18,7 @@
         "vitest": "^3.2.4",
       },
       "peerDependencies": {
-        "react": "*",
+        "react": "^19 || ^18",
       },
     },
   },
