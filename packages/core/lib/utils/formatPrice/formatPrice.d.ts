@@ -23,4 +23,3 @@ export type FormatPriceOptions = {
  * formatPrice(null, { fallback: 'N/A' }); // "N/A"
  */
 export declare function formatPrice(amount: number | string, options?: FormatPriceOptions): string;
-//# sourceMappingURL=formatPrice.d.ts.map

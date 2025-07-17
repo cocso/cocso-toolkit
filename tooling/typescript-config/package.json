@@ -6,7 +6,6 @@
   "main": "tsconfig.base.json",
   "files": [
     "tsconfig.base.json",
-    "tsconfig.react.json",
-    "tsconfig.vue.json"
+    "tsconfig.react.json"
   ]
-} 
+}

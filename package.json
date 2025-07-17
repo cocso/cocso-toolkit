@@ -1,6 +1,7 @@
 {
   "name": "cocso-toolkit",
   "private": true,
+  "workspaces": ["packages/*", "tooling/*"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -17,10 +18,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "bun@1.2.18",
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "docs/*"
-  ]
+  "packageManager": "bun@1.2.18"
 }

@@ -33,4 +33,3 @@ export type OpenPopupWindowOptions = {
  * openPopupWindow('https://example.com', { target: '_self', noopener: true });
  */
 export declare function openPopupWindow(url: string, options?: OpenPopupWindowOptions): Window | null;
-//# sourceMappingURL=openPopupWindow.d.ts.map

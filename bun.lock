@@ -3,8 +3,32 @@
   "workspaces": {
     "": {
       "name": "cocso-toolkit",
+      "devDependencies": {
+        "prettier": "^3.6.2",
+        "turbo": "^2.5.4",
+        "typescript": "5.8.3",
+      },
+    },
+    "packages/core": {
+      "name": "@cocso-toolkit/core",
+      "version": "0.0.1-beta.1",
       "dependencies": {
+        "@internal/typescript-config": "workspace:*",
         "dayjs": "^1.11.13",
+      },
+      "devDependencies": {
+        "esbuild": "^0.25.6",
+        "prettier": "^3.6.2",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4",
+      },
+    },
+    "packages/react": {
+      "name": "@cocso-toolkit/react",
+      "version": "0.0.1-beta.1",
+      "dependencies": {
+        "@cocso-toolkit/core": "workspace:*",
+        "@internal/typescript-config": "workspace:*",
       },
       "devDependencies": {
         "@types/react": "^19.1.8",
@@ -13,7 +37,6 @@
         "prettier": "^3.6.2",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
-        "turbo": "^2.5.5",
         "typescript": "^5.8.3",
         "vitest": "^3.2.4",
       },
@@ -21,8 +44,16 @@
         "react": "^19 || ^18",
       },
     },
+    "tooling/typescript-config": {
+      "name": "@internal/typescript-config",
+      "version": "0.0.1",
+    },
   },
   "packages": {
+    "@cocso-toolkit/core": ["@cocso-toolkit/core@workspace:packages/core"],
+
+    "@cocso-toolkit/react": ["@cocso-toolkit/react@workspace:packages/react"],
+
     "@esbuild/aix-ppc64": ["@esbuild/aix-ppc64@0.25.6", "", { "os": "aix", "cpu": "ppc64" }, "sha512-ShbM/3XxwuxjFiuVBHA+d3j5dyac0aEVVq1oluIDf71hUw0aRF59dV/efUsIwFnR6m8JNM2FjZOzmaZ8yG61kw=="],
 
     "@esbuild/android-arm": ["@esbuild/android-arm@0.25.6", "", { "os": "android", "cpu": "arm" }, "sha512-S8ToEOVfg++AU/bHwdksHNnyLyVM+eMVAOf6yRKFitnwnbwwPNqKr3srzFRe7nzV69RQKb5DgchIX5pt3L53xg=="],
@@ -74,6 +105,8 @@
     "@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.25.6", "", { "os": "win32", "cpu": "ia32" }, "sha512-4AWhgXmDuYN7rJI6ORB+uU9DHLq/erBbuMoAuB4VWJTu5KtCgcKYPynF0YI1VkBNuEfjNlLrFr9KZPJzrtLkrQ=="],
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.6", "", { "os": "win32", "cpu": "x64" }, "sha512-NgJPHHbEpLQgDH2MjQu90pzW/5vvXIZ7KOnPyNBm92A6WgZ/7b6fJyUBjoumLqeOQQGqY2QjQxRo97ah4Sj0cA=="],
+
+    "@internal/typescript-config": ["@internal/typescript-config@workspace:tooling/typescript-config"],
 
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.4", "", {}, "sha512-VT2+G1VQs/9oz078bLrYbecdZKs912zQlkelYpuf+SXF+QvZDYJlbx/LSx+meSAwdDFnF8FVXW92AVjjkVmgFw=="],
 

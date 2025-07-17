@@ -20,4 +20,3 @@ export type FormatPercentageOptions = {
  * formatPercentage(null, { fallback: 'N/A' }); // "N/A"
  */
 export declare function formatPercentage(rate: number | string, options?: FormatPercentageOptions): string;
-//# sourceMappingURL=formatPercentage.d.ts.map

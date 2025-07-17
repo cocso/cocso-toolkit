@@ -18,4 +18,3 @@ export interface FormatTimeOptions {
  * formatTime('', { fallback: 'N/A' }); // "N/A"
  */
 export declare function formatTime(input: string | Date, options?: FormatTimeOptions): string;
-//# sourceMappingURL=formatTime.d.ts.map
