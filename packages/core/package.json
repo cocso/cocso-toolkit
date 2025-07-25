@@ -1,6 +1,6 @@
 {
   "name": "@cocso-toolkit/core",
-  "version": "0.0.2-beta.1",
+  "version": "0.0.2-beta.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cocso/cocso-toolkit.git",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@internal/typescript-config": "workspace:*",
-    "esbuild": "^0.25.6",
+    "esbuild": "^0.25.8",
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"

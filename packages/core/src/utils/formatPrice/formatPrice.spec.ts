@@ -104,4 +104,68 @@ describe('formatPrice', () => {
     expect(formatPrice(0, { minimumFractionDigits: 2, maximumFractionDigits: 2 })).toBe('0.00원');
     expect(formatPrice(0, { maximumFractionDigits: 0, minimumFractionDigits: 0 })).toBe('0원');
   });
+
+  describe('currencyDisplay options for KRW', () => {
+    it('should use symbol (default) with Korean style', () => {
+      expect(formatPrice(1234.56, { currencyDisplay: 'symbol' })).toBe('1,234.6원');
+      expect(formatPrice(1000, { currencyDisplay: 'symbol' })).toBe('1,000원');
+    });
+
+    it('should use narrowSymbol with web standard', () => {
+      expect(formatPrice(1234.56, { currencyDisplay: 'narrowSymbol' })).toBe('₩1,234.6');
+      expect(formatPrice(1000, { currencyDisplay: 'narrowSymbol' })).toBe('₩1,000');
+    });
+
+    it('should use code with web standard', () => {
+      expect(formatPrice(1234.56, { currencyDisplay: 'code' })).toBe('KRW\u00A01,234.6');
+      expect(formatPrice(1000, { currencyDisplay: 'code' })).toBe('KRW\u00A01,000');
+    });
+
+    it('should use name with web standard', () => {
+      expect(formatPrice(1234.56, { currencyDisplay: 'name' })).toBe('1,234.6 대한민국 원');
+      expect(formatPrice(1000, { currencyDisplay: 'name' })).toBe('1,000 대한민국 원');
+    });
+
+    it('should use none to show only the value', () => {
+      expect(formatPrice(1234.56, { currencyDisplay: 'none' })).toBe('1,234.6');
+      expect(formatPrice(1000, { currencyDisplay: 'none' })).toBe('1,000');
+    });
+  });
+
+  describe('currencyDisplay options for other currencies', () => {
+    it('should use symbol for USD', () => {
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'symbol' })).toBe('US$1,000');
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'symbol' })).toBe('US$1,234.56');
+    });
+
+    it('should use narrowSymbol for USD', () => {
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'narrowSymbol' })).toBe('$1,000');
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'narrowSymbol' })).toBe('$1,234.56');
+    });
+
+    it('should use code for USD', () => {
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'code' })).toBe('USD\u00A01,000');
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'code' })).toBe('USD\u00A01,234.56');
+    });
+
+    it('should use name for USD', () => {
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'name' })).toBe('1,000 미국 달러');
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'name' })).toBe('1,234.56 미국 달러');
+    });
+
+    it('should use symbol for EUR', () => {
+      expect(formatPrice(1000, { currency: 'EUR', currencyDisplay: 'symbol' })).toBe('€1,000');
+      expect(formatPrice(1234.56, { currency: 'EUR', currencyDisplay: 'symbol' })).toBe('€1,234.56');
+    });
+
+    it('should use code for EUR', () => {
+      expect(formatPrice(1000, { currency: 'EUR', currencyDisplay: 'code' })).toBe('EUR\u00A01,000');
+      expect(formatPrice(1234.56, { currency: 'EUR', currencyDisplay: 'code' })).toBe('EUR\u00A01,234.56');
+    });
+
+    it('should use none for USD to show only the value', () => {
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'none' })).toBe('1,000');
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'none' })).toBe('1,234.56');
+    });
+  });
 }); 
