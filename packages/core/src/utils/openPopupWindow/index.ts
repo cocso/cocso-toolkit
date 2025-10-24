@@ -1,6 +1,6 @@
-export { openPopupWindow } from './openPopupWindow';
 export type {
-  OpenPopupWindowTarget,
   OpenPopupWindowFeatures,
   OpenPopupWindowOptions,
+  OpenPopupWindowTarget,
 } from './openPopupWindow';
+export { openPopupWindow } from './openPopupWindow';

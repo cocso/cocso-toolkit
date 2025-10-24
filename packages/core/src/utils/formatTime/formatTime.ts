@@ -24,7 +24,7 @@ export interface FormatTimeOptions {
  * formatTime('', { fallback: 'N/A' }); // "N/A"
  */
 export function formatTime(input: string | Date, options: FormatTimeOptions = {}): string {
-  const { format = 'YYYY.MM.DD', locale = 'ko', fallback } = options;
+  const { format = 'YYYY.MM.DD.', locale = 'ko', fallback } = options;
 
   if (!input) {
     return fallback ?? '-';
