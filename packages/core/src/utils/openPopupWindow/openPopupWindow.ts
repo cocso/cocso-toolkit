@@ -39,7 +39,7 @@ function buildFeatures(features: OpenPopupWindowFeatures): string {
     'directories',
     'copyhistory',
   ];
-  booleanFeatures.forEach((feature) => {
+  booleanFeatures.forEach(feature => {
     if (features[feature] !== undefined) {
       featurePairs.push(`${feature}=${features[feature] ? 'yes' : 'no'}`);
     }

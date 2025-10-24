@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { formatPrice, type FormatPriceOptions } from './formatPrice';
+import { type FormatPriceOptions, formatPrice } from './formatPrice';
 
 describe('formatPrice', () => {
   it('should format a number as price with default options (KRW)', () => {
@@ -135,32 +135,52 @@ describe('formatPrice', () => {
   describe('currencyDisplay options for other currencies', () => {
     it('should use symbol for USD', () => {
       expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'symbol' })).toBe('US$1,000');
-      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'symbol' })).toBe('US$1,234.56');
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'symbol' })).toBe(
+        'US$1,234.56',
+      );
     });
 
     it('should use narrowSymbol for USD', () => {
-      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'narrowSymbol' })).toBe('$1,000');
-      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'narrowSymbol' })).toBe('$1,234.56');
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'narrowSymbol' })).toBe(
+        '$1,000',
+      );
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'narrowSymbol' })).toBe(
+        '$1,234.56',
+      );
     });
 
     it('should use code for USD', () => {
-      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'code' })).toBe('USD\u00A01,000');
-      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'code' })).toBe('USD\u00A01,234.56');
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'code' })).toBe(
+        'USD\u00A01,000',
+      );
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'code' })).toBe(
+        'USD\u00A01,234.56',
+      );
     });
 
     it('should use name for USD', () => {
-      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'name' })).toBe('1,000 미국 달러');
-      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'name' })).toBe('1,234.56 미국 달러');
+      expect(formatPrice(1000, { currency: 'USD', currencyDisplay: 'name' })).toBe(
+        '1,000 미국 달러',
+      );
+      expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'name' })).toBe(
+        '1,234.56 미국 달러',
+      );
     });
 
     it('should use symbol for EUR', () => {
       expect(formatPrice(1000, { currency: 'EUR', currencyDisplay: 'symbol' })).toBe('€1,000');
-      expect(formatPrice(1234.56, { currency: 'EUR', currencyDisplay: 'symbol' })).toBe('€1,234.56');
+      expect(formatPrice(1234.56, { currency: 'EUR', currencyDisplay: 'symbol' })).toBe(
+        '€1,234.56',
+      );
     });
 
     it('should use code for EUR', () => {
-      expect(formatPrice(1000, { currency: 'EUR', currencyDisplay: 'code' })).toBe('EUR\u00A01,000');
-      expect(formatPrice(1234.56, { currency: 'EUR', currencyDisplay: 'code' })).toBe('EUR\u00A01,234.56');
+      expect(formatPrice(1000, { currency: 'EUR', currencyDisplay: 'code' })).toBe(
+        'EUR\u00A01,000',
+      );
+      expect(formatPrice(1234.56, { currency: 'EUR', currencyDisplay: 'code' })).toBe(
+        'EUR\u00A01,234.56',
+      );
     });
 
     it('should use none for USD to show only the value', () => {
@@ -168,4 +188,4 @@ describe('formatPrice', () => {
       expect(formatPrice(1234.56, { currency: 'USD', currencyDisplay: 'none' })).toBe('1,234.56');
     });
   });
-}); 
+});

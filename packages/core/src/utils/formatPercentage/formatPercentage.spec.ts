@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { formatPercentage, type FormatPercentageOptions } from './formatPercentage';
+import { type FormatPercentageOptions, formatPercentage } from './formatPercentage';
 
 describe('formatPercentage', () => {
   it('should format a number as percentage with default options', () => {
