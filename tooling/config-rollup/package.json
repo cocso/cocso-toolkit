@@ -2,7 +2,7 @@
   "name": "@internal/config-rollup",
   "version": "0.0.1",
   "private": true,
-  "description": "Shared rollup configurations for COCSO packages",
+  "description": "Shared Rollup configurations",
   "main": "base.js",
   "files": [
     "*.js"

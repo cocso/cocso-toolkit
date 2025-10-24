@@ -2,10 +2,9 @@
   "extends": "@internal/typescript-config/tsconfig.react.json",
   "compilerOptions": {
     "strict": true,
-    "emitDeclarationOnly": true,
+    "noEmit": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "declaration": true,
     "sourceMap": false
   },
   "include": ["src/**/*"],
