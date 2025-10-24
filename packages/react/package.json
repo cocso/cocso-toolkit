@@ -7,47 +7,56 @@
     "directory": "packages/react"
   },
   "sideEffects": false,
-  "type": "module",
-  "main": "./lib/index.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/cjs/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      }
     }
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "build": "rm -rf lib && bun run build.js && bun x tsc",
-    "dev": "bun run build.js --watch",
-    "clean": "rm -rf lib node_modules",
-    "lint": "echo 'lint script not implemented'",
-    "test": "vitest",
-    "test:run": "vitest run"
+    "prebuild": "rm -rf dist",
+    "build": "rollup -c rollup.config.cjs",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --fix .",
+    "format": "biome format --write ."
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "biome lint --fix",
+      "biome format --write"
+    ]
   },
   "dependencies": {
     "@cocso-toolkit/core": "workspace:*"
   },
   "devDependencies": {
     "@internal/typescript-config": "workspace:*",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "esbuild": "^0.25.8",
-    "prettier": "^3.6.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "typescript": "^5.8.3",
+    "@internal/config-rollup": "workspace:*",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "rollup": "^4.52.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "react": "^19 || ^18"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"

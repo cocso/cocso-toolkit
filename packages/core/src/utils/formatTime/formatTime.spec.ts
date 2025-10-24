@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatTime, FormatTimeOptions } from './formatTime';
+import { formatTime, type FormatTimeOptions } from './formatTime';
 
 describe('formatTime', () => {
   it('should format a date string with default options', () => {

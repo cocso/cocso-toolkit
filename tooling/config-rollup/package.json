@@ -1,0 +1,20 @@
+{
+  "name": "@internal/config-rollup",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Shared rollup configurations for COCSO packages",
+  "main": "base.js",
+  "files": [
+    "*.js"
+  ],
+  "dependencies": {
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-preserve-directives": "^0.4.0"
+  }
+}

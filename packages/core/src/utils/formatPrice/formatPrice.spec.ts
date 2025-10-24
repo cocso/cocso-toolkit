@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { formatPrice, FormatPriceOptions } from './formatPrice';
+import { formatPrice, type FormatPriceOptions } from './formatPrice';
 
 describe('formatPrice', () => {
   it('should format a number as price with default options (KRW)', () => {
