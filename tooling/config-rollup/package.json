@@ -5,7 +5,8 @@
   "description": "Shared Rollup configurations",
   "main": "base.js",
   "files": [
-    "*.js"
+    "base.js",
+    "api.js"
   ],
   "dependencies": {
     "@babel/preset-react": "^7.28.5",
@@ -16,5 +17,8 @@
     "rollup-plugin-dts": "^6.2.3",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-preserve-directives": "^0.4.0"
+  },
+  "peerDependencies": {
+    "rollup": "^4.0.0"
   }
 }
